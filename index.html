@@ -1,215 +1,380 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Falar no WhatsApp</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --sky-top: #BFE6F7;
-    --sky-bottom: #8FCBE8;
-    --paper: #FFFBF2;
-    --ink: #223A57;
-    --ink-soft: #5B7089;
-    --coral: #FF6B4A;
-    --coral-dark: #E85535;
-    --sun: #FFD166;
-    --leaf: #4CAF7D;
-  }
-  * { box-sizing: border-box; }
-  html, body { height: 100%; margin: 0; }
-  body {
-    font-family: 'Nunito', -apple-system, sans-serif;
-    background: radial-gradient(ellipse at 50% -10%, var(--sky-top), var(--sky-bottom) 70%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100%;
-    padding: 20px;
-    padding-top: calc(20px + env(safe-area-inset-top, 0px));
-    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-    position: relative;
-    overflow-x: hidden;
-  }
-  /* nuvens decorativas */
-  .cloud {
-    position: absolute;
-    background: #fff;
-    border-radius: 50%;
-    opacity: 0.55;
-    filter: blur(0.5px);
-  }
-  .cloud.c1 { width: 140px; height: 50px; top: 8%; left: -30px; }
-  .cloud.c2 { width: 100px; height: 38px; top: 16%; right: -20px; }
-  .cloud.c3 { width: 90px; height: 34px; bottom: 10%; left: 6%; }
-
-  .card {
-    position: relative;
-    background: var(--paper);
-    border-radius: 28px;
-    padding: 38px 30px 32px;
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 24px 60px rgba(34, 58, 87, 0.22);
-  }
-
-  .illustration { width: 96px; height: 96px; margin: 0 auto 18px; display: block; }
-
-  h1 {
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-    font-size: 23px;
-    color: var(--ink);
-    margin: 0 0 12px;
-    line-height: 1.35;
-  }
-
-  p.sub {
-    font-size: 15px;
-    color: var(--ink-soft);
-    margin: 0 0 26px;
-    line-height: 1.6;
-    max-width: 34ch;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  a.btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: var(--coral);
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 16px 22px;
-    border-radius: 16px;
-    box-shadow: 0 10px 24px rgba(255, 107, 74, 0.4);
-    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
-  }
-  a.btn:active { transform: scale(0.97); background: var(--coral-dark); box-shadow: 0 6px 14px rgba(255,107,74,0.35); }
-  a.btn svg { width: 22px; height: 22px; flex-shrink: 0; }
-
-  .timer-row {
-    margin-top: 16px;
-    font-size: 13px;
-    color: var(--ink-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-  .timer-row .dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--leaf);
-    animation: pulse 1.4s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 0.4; transform: scale(0.85); }
-    50% { opacity: 1; transform: scale(1); }
-  }
-
-  .trust {
-    margin-top: 22px;
-    padding-top: 18px;
-    border-top: 1px solid #EFE9D8;
-    font-size: 12.5px;
-    color: var(--ink-soft);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body { background: radial-gradient(ellipse at 50% -10%, #2A4A63, #16324A 70%); }
-    .card { background: #22364A; box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
-    h1 { color: #F5F2E8; }
-    p.sub, .trust, .timer-row { color: #B7C6D6; }
-    .trust { border-top-color: #33465C; }
-    .cloud { opacity: 0.15; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha da Leitura – Kit Completo de Alfabetização</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(180deg, #eef6ff 0%, #f7faff 100%);
+      color: #1a2b4a;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 20px 16px 48px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .badge {
+      display: inline-block;
+      background: #ff6b4a;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      letter-spacing: 0.3px;
+    }
+    .urgency {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff3e0;
+      color: #e65100;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      color: #0f1c2e;
+    }
+    .sub {
+      font-size: 15.5px;
+      color: #4a5d7a;
+      margin-bottom: 6px;
+    }
+    .social-proof-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 13.5px;
+      color: #3d5a80;
+      font-weight: 500;
+    }
+    .social-proof-top .stars {
+      color: #f5a623;
+      letter-spacing: 1px;
+    }
+    .price-box {
+      background: white;
+      border-radius: 18px;
+      padding: 22px 20px;
+      text-align: center;
+      margin: 22px 0 8px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      border: 2px solid #d6e8ff;
+      position: relative;
+    }
+    .price-box::before {
+      content: "OFERTA ESPECIAL";
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff6b4a;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+    .price {
+      font-size: 46px;
+      font-weight: 800;
+      color: #ff6b4a;
+      line-height: 1.1;
+    }
+    .price span {
+      font-size: 20px;
+      font-weight: 600;
+      color: #4a5d7a;
+    }
+    .price-detail {
+      font-size: 13.5px;
+      color: #4a5d7a;
+      margin-top: 8px;
+    }
+    .value-note {
+      font-size: 13px;
+      color: #2e7d32;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      font-size: 17.5px;
+      font-weight: 700;
+      padding: 18px 22px;
+      border-radius: 14px;
+      margin: 18px 0 6px;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn:active {
+      transform: scale(0.98);
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    }
+    .btn svg { width: 24px; height: 24px; fill: white; }
+    .btn-sub {
+      text-align: center;
+      font-size: 12.5px;
+      color: #5a6d8a;
+      margin-bottom: 18px;
+    }
+    .section {
+      background: white;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 16px;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.04);
+    }
+    .section h2 {
+      font-size: 17.5px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #0f1c2e;
+    }
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+    .item:last-child { margin-bottom: 0; }
+    .check {
+      background: #e6f7ef;
+      color: #1b9e5a;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .item-text strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 2px;
+      color: #0f1c2e;
+    }
+    .item-text span {
+      font-size: 13px;
+      color: #5a6d8a;
+    }
+    .benefit {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 13px;
+      font-size: 14.5px;
+      align-items: flex-start;
+    }
+    .benefit:last-child { margin-bottom: 0; }
+    .benefit span {
+      color: #1b9e5a;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .social-box {
+      background: #f0f9ff;
+      border: 1px solid #d0e8ff;
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .social-box .number {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1565c0;
+      margin-bottom: 2px;
+    }
+    .social-box .text {
+      font-size: 13.5px;
+      color: #3d5a80;
+    }
+    .faq-item {
+      margin-bottom: 16px;
+    }
+    .faq-item:last-child { margin-bottom: 0; }
+    .faq-q {
+      font-weight: 700;
+      font-size: 14.5px;
+      margin-bottom: 4px;
+      color: #0f1c2e;
+    }
+    .faq-a {
+      font-size: 13.5px;
+      color: #4a5d7a;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 12.5px;
+      color: #6b7c94;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .guarantee {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #2e7d32;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-  <div class="cloud c1"></div>
-  <div class="cloud c2"></div>
-  <div class="cloud c3"></div>
+  <div class="container">
 
-  <div class="card">
-    <svg class="illustration" viewBox="0 0 100 100" fill="none">
-      <path d="M50 30 C42 22 25 22 18 28 V66 C25 60 42 60 50 68 C58 60 75 60 82 66 V28 C75 22 58 22 50 30Z" fill="#FFFFFF" stroke="#223A57" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M50 30V68" stroke="#223A57" stroke-width="2.5"/>
-      <path d="M24 34c4-2 12-2 18 2M24 44c4-2 12-2 18 2M24 54c4-2 12-2 18 2" stroke="#FF6B4A" stroke-width="2" stroke-linecap="round"/>
-      <path d="M76 34c-4-2-12-2-18 2M76 44c-4-2-12-2-18 2M76 54c-4-2-12-2-18 2" stroke="#FF6B4A" stroke-width="2" stroke-linecap="round"/>
-      <path d="M50 12c1.5 4 5 5.5 9 5.5-4 1-6.5 4-8 8-1.5-4-4-7-8-8 4 0 6.5-1.5 7-5.5Z" fill="#FFD166"/>
-    </svg>
-
-    <h1>Ajude seu filho a dar os primeiros passos na leitura</h1>
-    <p class="sub">Toque no botão e fale comigo no WhatsApp para conhecer o material completo, passo a passo, para o seu filho.</p>
-
-    <a class="btn" id="waBtn" href="#">
-      <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.03 2 11c0 1.85.6 3.57 1.63 5L2 22l6.2-1.62A10.7 10.7 0 0 0 12 20c5.52 0 10-4.03 10-9S17.52 2 12 2Z"/></svg>
-      Quero falar agora
-    </a>
-
-    <div class="timer-row">
-      <span class="dot"></span>
-      <span id="timerText">Redirecionando em 5s...</span>
+    <div class="header">
+      <div class="badge">Material Digital para Imprimir</div>
+      <div class="urgency">🔥 Oferta por tempo limitado</div>
+      <h1>Trilha da Leitura<br>Kit Completo de Alfabetização</h1>
+      <p class="sub">76 atividades prontas para ajudar seu filho a dar os primeiros passos na leitura e na escrita — de forma divertida.</p>
+      <div class="social-proof-top">
+        <span class="stars">★★★★★</span>
+        <span>+2.300 famílias já baixaram</span>
+      </div>
     </div>
 
-    <div class="trust">Mais de 2 mil famílias já receberam este material</div>
+    <div class="price-box">
+      <div class="old-price">De R$ 47,00</div>
+      <div class="price">R$ 10<span>,00</span></div>
+      <div class="price-detail">Pagamento único • Acesso imediato</div>
+      <div class="value-note">Menos de R$ 0,14 por arquivo</div>
+    </div>
+
+    <a class="btn" href="https://wa.me/5516995206314?text=Ol%C3%A1!%20Me%20interessei%20no%20Kit%20Trilha%20da%20Leitura%20de%20R%24%2010.%20Qual%20a%20chave%20PIX%3F">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.03 2 11c0 1.85.6 3.57 1.63 5L2 22l6.2-1.62A10.7 10.7 0 0 0 12 20c5.52 0 10-4.03 10-9S17.52 2 12 2Z"/></svg>
+      Quero receber agora por R$ 10
+    </a>
+    <div class="btn-sub">Pagamento via PIX • Liberação em menos de 2 minutos</div>
+
+    <div class="section">
+      <h2>O que você recebe hoje:</h2>
+      
+      <div class="item">
+        <div class="check">✓</div>
+        <div class="item-text">
+          <strong>Kit de Alfabetização – 26 PDFs</strong>
+          <span>Letras, sílabas, formação de palavras e muito mais</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="check">✓</div>
+        <div class="item-text">
+          <strong>Jogos para Colorir – 14 PDFs</strong>
+          <span>Estimula a criatividade e a coordenação motora</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="check">✓</div>
+        <div class="item-text">
+          <strong>Jogos Pedagógicos – 36 PDFs</strong>
+          <span>Memória, ligue as sombras e outras atividades lúdicas</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="check">✓</div>
+        <div class="item-text">
+          <strong>Total: 76 arquivos em PDF</strong>
+          <span>Para imprimir quantas vezes quiser</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-box">
+      <div class="number">+2.300</div>
+      <div class="text">pais e mães já baixaram este material<br>para ajudar seus filhos na alfabetização</div>
+    </div>
+
+    <div class="section">
+      <h2>Por que tantos pais estão usando:</h2>
+      <div class="benefit"><span>✓</span> Pronto para imprimir — sem precisar criar nada</div>
+      <div class="benefit"><span>✓</span> Ideal para crianças de 3 a 7 anos</div>
+      <div class="benefit"><span>✓</span> Ajuda na alfabetização de forma divertida</div>
+      <div class="benefit"><span>✓</span> Pode usar em casa todos os dias</div>
+      <div class="benefit"><span>✓</span> Acesso imediato após o pagamento</div>
+    </div>
+
+    <a class="btn" href="https://wa.me/5516995206314?text=Ol%C3%A1!%20Me%20interessei%20no%20Kit%20Trilha%20da%20Leitura%20de%20R%24%2010.%20Qual%20a%20chave%20PIX%3F">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.03 2 11c0 1.85.6 3.57 1.63 5L2 22l6.2-1.62A10.7 10.7 0 0 0 12 20c5.52 0 10-4.03 10-9S17.52 2 12 2Z"/></svg>
+      Quero receber agora por R$ 10
+    </a>
+    <div class="btn-sub">Pagamento via PIX • Liberação em menos de 2 minutos</div>
+
+    <div class="section">
+      <h2>Dúvidas frequentes</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">É material digital?</div>
+        <div class="faq-a">Sim. Você recebe os arquivos em PDF para baixar e imprimir quantas vezes quiser.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Como recebo o material?</div>
+        <div class="faq-a">Após o pagamento via PIX, enviamos o link de acesso imediatamente no WhatsApp.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Serve para qual idade?</div>
+        <div class="faq-a">Recomendado para crianças de 3 a 7 anos (fase de alfabetização).</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Posso imprimir quantas vezes quiser?</div>
+        <div class="faq-a">Sim! O material é seu para sempre. Pode imprimir quantas cópias precisar.</div>
+      </div>
+    </div>
+
+    <a class="btn" href="https://wa.me/5516995206314?text=Ol%C3%A1!%20Me%20interessei%20no%20Kit%20Trilha%20da%20Leitura%20de%20R%24%2010.%20Qual%20a%20chave%20PIX%3F">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.03 2 11c0 1.85.6 3.57 1.63 5L2 22l6.2-1.62A10.7 10.7 0 0 0 12 20c5.52 0 10-4.03 10-9S17.52 2 12 2Z"/></svg>
+      Quero receber agora por R$ 10
+    </a>
+
+    <div class="guarantee">🔒 Pagamento seguro via PIX</div>
+    <p class="footer-note">
+      Entrega imediata no WhatsApp<br>
+      Acesso liberado em menos de 2 minutos
+    </p>
+
   </div>
-
-<script>
-  // ===================== CONFIGURAÇÃO =====================
-  var WHATSAPP_NUMERO = "5516995206314";
-  var MENSAGEM = "Olá! Vi o anúncio e quero saber mais sobre os recursos de leitura para meu filho.";
-  var PIXEL_ID = "1100829495696193"; // ex: "1234567890123456"
-  var AUTO_REDIRECT_SEGUNDOS = 0; // 0 desativa o redirecionamento automático
-  // ==========================================================
-
-  var link = "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(MENSAGEM);
-  var btn = document.getElementById("waBtn");
-  btn.href = link;
-
-  if (PIXEL_ID) {
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', PIXEL_ID);
-    fbq('track', 'PageView');
-  }
-
-  function fireContact() {
-    if (PIXEL_ID && window.fbq) fbq('track', 'Contact');
-  }
-
-  btn.addEventListener("click", fireContact);
-
-  var timerEl = document.getElementById("timerText");
-  if (AUTO_REDIRECT_SEGUNDOS > 0) {
-    var remaining = AUTO_REDIRECT_SEGUNDOS;
-    timerEl.textContent = "Redirecionando em " + remaining + "s...";
-    var interval = setInterval(function () {
-      remaining -= 1;
-      if (remaining <= 0) {
-        clearInterval(interval);
-        timerEl.textContent = "Abrindo o WhatsApp...";
-        fireContact();
-        window.location.href = link;
-      } else {
-        timerEl.textContent = "Redirecionando em " + remaining + "s...";
-      }
-    }, 1000);
-  } else {
-    timerEl.parentElement.style.display = "none";
-  }
-</script>
 </body>
 </html>
